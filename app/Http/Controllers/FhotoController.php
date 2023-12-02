@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fhoto;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -14,13 +15,12 @@ class FhotoController extends Controller
     }
     public function list()
     {
-        $fotos = Fhoto::all();
+        $fotos = Fhoto::latest()->get();
         return view('upload.list', compact('fotos'));
     }
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => '',
             'foto' => 'required|image'
         ]);
         $foto = $request->file('foto');

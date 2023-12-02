@@ -15,9 +15,17 @@ class HomeController extends Controller
     public function hasilFoto(Request $request)
     {
         $cari = $request->name;
-        $fotos = Fhoto::where('name', 'like', '%' .$cari. '%')->get();
+        if ($cari == null){
+            return back();
+        }else{
+            $fotos = Fhoto::where('name', 'like', '%' .$cari. '%')->paginate(1)
+            ->withQueryString();
+            // dd($fotos);
+            return view('hasil', compact('fotos'));
+        }
+            // $fotos = Fhoto::where('name', 'like', '%' .$cari. '%')->get();
         // dd($fotos);
-        return view('hasil', compact('fotos'));
+
     }
     public function downloadFoto($id)
     {

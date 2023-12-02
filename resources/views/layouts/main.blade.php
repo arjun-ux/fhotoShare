@@ -9,34 +9,6 @@
   <body>
     @yield('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    {{-- search ajax --}}
-    <script>
-        $(document).ready(function() {
-            // readData();
-            $("#input").keyup(function() {
-                var cari = $("#input").val();
-                if (cari != ""){
-                    $("#read").html('<p><center><strong>Menunggu Data Yang Dicari...</strong></center></p>');
-                    $.ajax({
-                        type: "get",
-                        url: "{{ url('ajax') }}",
-                        data: "name=" + cari,
-                        success:function(data){
-                            $("#read").html(data);
-                        }
-                    });
-                }else{
-                    readData();
-                }
-            });
-        });
 
-        function readData(){
-            $.get("{{ url('read') }}",{},
-            function(data, status) {
-                $("#read").html(data);
-            });
-        }
-    </script>
 </body>
 </html>

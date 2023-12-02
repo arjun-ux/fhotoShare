@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // route untuk uplload
-Route::get('/upload', [FhotoController::class, 'index'])->name('upload');
-Route::post('/upload', [FhotoController::class, 'store'])->name('upload.store');
+// Route::get('/upload', [FhotoController::class, 'index'])->name('upload');
+Route::post('/upload-store', [FhotoController::class, 'store'])->name('upload.store');
 Route::get('/list', [FhotoController::class, 'list'])->name('list');
 
 // route untuk home
