@@ -6,9 +6,11 @@
             <div class="card-body text-center">
                 <div class="card-title">
                     <h6><b>{{ $f->name }}</b></h6>
+                    <a href="{{ route('downloadFoto', $f->id) }}">Download</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endforeach
+{{-- <h1>{{ $fotos->name }}</h1> --}}

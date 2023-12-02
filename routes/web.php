@@ -25,3 +25,4 @@ Route::get('/list', [FhotoController::class, 'list'])->name('list');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/hasil', [HomeController::class, 'hasilFoto'])->name('hasilFoto');
+Route::get('/download-foto/{id}', [HomeController::class, 'downloadFoto'])->name('downloadFoto');

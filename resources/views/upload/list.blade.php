@@ -13,6 +13,7 @@
                         <div class="card-body">
                             <img src="{{ asset('storage/img/'.$f->foto) }}" alt="foto" width="150px" height="150px">
                         </div>
+                        <a href="{{ route('downloadFoto', $f->id) }}">Download</a>
                     </div>
                 </div>
             @endforeach
